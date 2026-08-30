@@ -39,7 +39,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Получаем файл из формы. Поле в HTML должно называться "file"
-	file, _, err := r.FormFile("file")
+	file, _, err := r.FormFile("myFile")
 	if err != nil {
 		http.Error(w, fmt.Sprintf("Файл не найден в форме: %v", err), http.StatusBadRequest)
 		return
