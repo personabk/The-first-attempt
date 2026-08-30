@@ -68,31 +68,8 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Формируем красивый HTML-ответ с результатом
-	fmt.Fprintf(w, `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Результат конвертации</title>
-            <style>
-                body { font-family: Arial, sans-serif; padding: 20px; }
-                .result-box { border: 1px solid #ccc; padding: 15px; margin-top: 20px; background: #f9f9f9; }
-                .label { font-weight: bold; color: #555; }
-            </style>
-        </head>
-        <body>
-            <h1>Результат конвертации</h1>
-            <div class="result-box">
-                <p><span class="label">Исходные данные (первые 100 символов):</span><br>%s</p>
-                <hr>
-                <h2>Результат:</h2>
-                <p style="font-size: 1.2em; white-space: pre-wrap;">%s</p>
-            </div>
-            <br>
-            <a href="/">← Вернуться к загрузке</a>
-        </body>
-        </html>
-    `, truncate(inputText, 100), result)
+	fmt.Fprint(w, result)
+
 }
 
 // truncate обрезает строку до указанной длины, чтобы красиво показать превью.
