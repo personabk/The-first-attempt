@@ -14,6 +14,7 @@ type Server struct {
 	Server *http.Server
 }
 
+// тест
 // NewServer создает и настраивает новый экземпляр сервера.
 func NewServer(logger *log.Logger) *Server {
 	// 1. Создаем http-роутер
